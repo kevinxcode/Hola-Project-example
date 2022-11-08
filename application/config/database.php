@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '10.109.100.111',
+	'hostname' => 'localhost',
 	'username' => 'postgres',
-	'password' => 'PTDB3v1113!@#',
-	'database' => 'hrdapps',
+	'password' => 'root',
+	'database' => 'postgre',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

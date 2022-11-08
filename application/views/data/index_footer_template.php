@@ -1,1 +1,1 @@
-<?php echo date('Y'); ?> copyright 
+<?php echo date('Y'); ?> copyright

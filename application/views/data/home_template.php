@@ -18,15 +18,16 @@
     <tbody>
       <?php $i = 1; ?>
       <?php foreach($list as $value): ?>
-      <tr>
+      <tr id="id_em_view<?php echo $value->id; ?>">
         <td><?php echo $i++ ?></td>
         <td><?php echo $value->nik; ?></td>
         <td><?php echo $value->name; ?></td>
         <td><?php echo $value->dept; ?></td>
         <td ><?php echo $value->jab; ?></td>
-        <td width="10%">
+        <td width="18%">
           <span class="btn btn-primary" onclick="editEm('<?php echo $value->id; ?>')" data-toggle="modal" data-target="#myModal_edit">Edit</span>
-          <a href="<?php echo prefix_url;?>app/delEmployee/<?php echo $value->id; ?>" class="btn btn-danger">X</span>
+          <span onclick="delEm('<?php echo $value->id; ?>')" class="btn btn-danger">X (AJAX)</span>
+          <a href="<?php echo prefix_url;?>app/delEmployee/<?php echo $value->id; ?>" class="btn btn-danger">X</a>
         </td>
 
       </tr>
@@ -36,6 +37,17 @@
   </table>
 </div>
 <script>
+function delEm(id){
+  if(confirm('Are you sure to delete')){
+    $.ajax({
+     url: '<?php echo prefix_url;?>app/delEmployee/'+id,
+     success: function(data) {
+      $('#id_em_view'+id).hide();
+    }
+   });
+  }
+
+}
 function editEm(id){
   $.ajax({
 	 url: '<?php echo prefix_url;?>app/editEmView',

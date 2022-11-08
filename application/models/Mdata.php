@@ -21,6 +21,18 @@ class Mdata extends CI_Model{
 		return $query->result();
 	}
 
+	function check_qr($qrScan){
+        
+		
+		$query = $this->db->query("SELECT * FROM hola.tb_qr where qr='$nqrScanik'");
+		if($query->num_rows() > 0)
+		{
+			return 1;
+		}else{
+			return 2;
+		}
+	}
+
 	
 
 	

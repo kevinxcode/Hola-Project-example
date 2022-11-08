@@ -96,6 +96,49 @@ class App extends CI_Controller {
 		<?php
 	}
 
+	function createCode()
+	{
+		$hash = "";
+		$date = date('Ymdhis');
+		$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz";
+		for($i = 0; $i < 20; $i++)
+		{
+			$hash .= $chars[mt_rand(0, 61)];
+			$tokenid =($hash);
+		}
+		// return $tokenid;
+		echo $tokenid;
+	}
+
+	// action scan
+	// const qr_read
+	// url : {'127.1.1.1/example/app/qrAction', qr_read}
+
+	function qrAction($qrScan){
+		$check_qr =  $this->Mdata->check_qr($qrScan);
+		if($check_qr==1){
+			// save to db 
+			$dept = $this->input->post('dept', TRUE);
+			$jab = $this->input->post('jab', TRUE);
+			$data = array(
+				'nik' => $nik,
+				'date' => date('Y-m-d'),
+				'time' => date('H:i:s'),
+				'status' => $status, // 1 = in , 2 = out 
+			);
+			$this->db->insert('hola.tbAttendance', $data);
+			echo 'success';
+		}else{
+			echo 'failed';
+		}
+
+	}
+
+	//  wait response (success) 
+
+	// table || qr_token || COST CENTER ||
+	//       || hdfusdhf || P000124 ||
+
 
 	
 

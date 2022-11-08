@@ -112,14 +112,13 @@ class App extends CI_Controller {
 
 	// action scan
 	// const qr_read
-	// url : {'127.1.1.1/example/app/qrAction', qr_read}
+	// const NIK (save to cache app)
+	// url : {'127.1.1.1/example/app/qrAction', qr_read.NIK}
 
 	function qrAction($qrScan){
 		$check_qr =  $this->Mdata->check_qr($qrScan);
 		if($check_qr==1){
 			// save to db 
-			$dept = $this->input->post('dept', TRUE);
-			$jab = $this->input->post('jab', TRUE);
 			$data = array(
 				'nik' => $nik,
 				'date' => date('Y-m-d'),

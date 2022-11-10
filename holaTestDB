@@ -1,0 +1,36 @@
+-- Table: hola.tes_employee
+
+-- DROP TABLE hola.tes_employee;
+
+CREATE TABLE hola.tes_employee
+(
+  id serial NOT NULL,
+  nik text,
+  name text,
+  dept text,
+  jab text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE hola.tes_employee
+  OWNER TO postgres;
+
+
+
+-- Table: hola.tes_user
+
+-- DROP TABLE hola.tes_user;
+
+CREATE TABLE hola.tes_user
+(
+  iduser serial NOT NULL,
+  nik text,
+  password text,
+  level text
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE hola.tes_user
+  OWNER TO postgres;
